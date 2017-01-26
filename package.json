@@ -4,7 +4,7 @@
   "description": "Take a unix-like command line as a string and parse into an usable object",
   "main": "bin/Parser.js",
   "bin": {
-    "string-to-argv.js": "Parser.js"
+    "string-to-argv.js": "bin/Parser.js"
   },
   "engines":{
     "node": ">=4.2"
@@ -32,7 +32,7 @@
   ],
   "author": "Simone Corsi",
   "license": "ISC",
-  "dependencies": {
+  "devDependencies": {
     "chai": "^3.5.0",
     "mocha": "^3.2.0"
   }

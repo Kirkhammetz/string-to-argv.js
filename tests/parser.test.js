@@ -17,7 +17,7 @@ describe('Parser Class', () => {
     })
   })
 
-  it('should onechar flag when last element of the string', () => {
+  it('should set boolean value to flag when last element of the string [single-flag]', () => {
     let parsed = new Parser('command -p')
     expect(parsed).to.eql({
       _: [],
@@ -27,15 +27,14 @@ describe('Parser Class', () => {
     })
   })
 
-  it('should onechar flag when last element of the string', () => {
-    let parsed = new Parser('command --p')
-    console.log(parsed)
-    // expect(parsed).to.eql({
-    //   _: [],
-    //   command: 'command',
-    //   raw: 'command',
-    //   p: true,
-    // })
+  it('should set boolean value to flag when last element of the string [verbose]', () => {
+    let parsed = new Parser('command --verbose')
+    expect(parsed).to.eql({
+      _: [],
+      command: 'command',
+      raw: 'command --verbose',
+      verbose: true,
+    })
   })
 
   it('should onechar flag when last element of the string', () => {
@@ -64,7 +63,6 @@ describe('Parser Class', () => {
 
   it('should parse this not nice looking string', () => {
     let parsed = new Parser('cmd -z -c -v -flag1 123 -p -f test --depth=0 -s --string=noquotes --flagstring="with spaces" source/ dest/')
-    console.log(parsed)
     expect(parsed).to.eql({
       raw: 'cmd -z -c -v -flag1 123 -p -f test --depth=0 -s --string=noquotes --flagstring="with spaces" source/ dest/',
       command: 'cmd',
