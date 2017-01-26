@@ -3,6 +3,9 @@ class Parser {
     if (!command || !command.length) {
       throw new Error('Parser: command provided is empty.')
     }
+		if (typeof command !== 'string') {
+			throw new Error('Parser: command must be a string!')
+		}
 
     this.raw = command
 
