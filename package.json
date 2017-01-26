@@ -1,0 +1,32 @@
+{
+  "name": "string-to-argv.js",
+  "version": "1.0.0",
+  "description": "Take a unix-like command line as a string and parse into an usable object",
+  "main": "bin/Parser.js",
+  "bin": {
+    "string-to-argv.js": "Parser.js"
+  },
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "mocha tests"
+  },
+  "keywords": [
+    "javascript",
+    "parser",
+    "argv",
+    "string",
+    "parser",
+    "string",
+    "to",
+    "argv",
+    "string",
+    "command",
+    "unix",
+    "terminal",
+    "prompt"
+  ],
+  "author": "Simone Corsi",
+  "license": "ISC"
+}
