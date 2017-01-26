@@ -24,9 +24,9 @@ Parse a string of a unix-like command line and parse it into a more usable Objec
     flagstring: 'with spaces'
   }
 ```
-## Know Issue to fix
+## Know Issue
 
-  - messing up with nested string in the stringed flag mess the regexp up.
+  - nesting quotes in stringed flag not implemented.
 
 ##Error
 ```js
