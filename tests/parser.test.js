@@ -38,20 +38,23 @@ describe('Parser Class', () => {
   })
 
   it('should onechar flag when last element of the string', () => {
-    let parsed = new Parser('command --p --asd --v asd asd123')
-    console.log(parsed)
-    // expect(parsed).to.eql({
-    //   _: [],
-    //   command: 'command',
-    //   raw: 'command',
-    //   p: true,
-    // })
+    let raw = 'command --shouldbetrue --shouldbetruetoo --shouldbethevaluepassed asd asd123'
+    let parsed = new Parser(raw)
+    expect(parsed).to.eql({
+      raw,
+      command: 'command',
+      _: [ 'asd123' ],
+      shouldbetrue: true,
+      shouldbetruetoo: true,
+      shouldbethevaluepassed: 'asd'
+    })
   })
 
   it('should parse some options', () => {
-    let parsed = new Parser('cmd -p -f test --flag=flag --flagstring="flag with a string with space" source/ dest/')
+    let raw = 'cmd -p -f test --flag=flag --flagstring="flag with a string with space" source/ dest/'
+    let parsed = new Parser(raw)
     expect(parsed).to.eql({
-      raw: 'cmd -p -f test --flag=flag --flagstring="flag with a string with space" source/ dest/',
+      raw,
       command: 'cmd',
       _: [ 'source/', 'dest/' ],
       p: true,
@@ -62,9 +65,10 @@ describe('Parser Class', () => {
   })
 
   it('should parse this not nice looking string', () => {
-    let parsed = new Parser('cmd -z -c -v -flag1 123 -p -f test --depth=0 -s --string=noquotes --flagstring="with spaces" source/ dest/')
+    let raw = 'cmd -z -c -v -flag1 123 -p -f test --depth=0 -s --string=noquotes --flagstring="with spaces" source/ dest/'
+    let parsed = new Parser(raw)
     expect(parsed).to.eql({
-      raw: 'cmd -z -c -v -flag1 123 -p -f test --depth=0 -s --string=noquotes --flagstring="with spaces" source/ dest/',
+      raw,
       command: 'cmd',
       _: [ 'source/', 'dest/' ],
       z: true,

@@ -12,10 +12,20 @@ class Parser {
     this.command = argv[0]
     this._ = []
 
-    // Swallow copy without the command
+    // Swallow copy without the command and send to parsing
     if (argv.length) {
       const parsed = this.parse(argv.slice(1))
-      Object.assign(this, parsed)
+
+      // If no Object.assign do the old way
+      if (!Object.assign) {
+        for (let key in parsed) {
+          if (parsed.hasOwnProperty(key)) {
+            this[key] = parsed[key]
+          }
+        }
+        return true
+      }
+      return Object.assign(this, parsed)
     }
   }
 
@@ -121,6 +131,11 @@ class Parser {
       if (!options[1] || (options[1] && options[1].match(/^\-{1,}/))) {
         parsed[optionName] = true
         return this.parse(options.slice(1), parsed)
+      }
+
+      if (options[1] && !options[1].match(/^\-{1,}/)) {
+        parsed[optionName] = options[1]
+        return this.parse(options.slice(2), parsed)
       }
     }
 
