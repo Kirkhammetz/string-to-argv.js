@@ -1,5 +1,5 @@
 const { expect } = require('chai')
-const Parser = require('../bin/classes/Parser')
+const Parser = require('../bin/Parser')
 
 describe('Parser Class', () => {
 
@@ -64,6 +64,7 @@ describe('Parser Class', () => {
 
   it('should parse this not nice looking string', () => {
     let parsed = new Parser('cmd -z -c -v -flag1 123 -p -f test --depth=0 -s --string=noquotes --flagstring="with spaces" source/ dest/')
+    console.log(parsed)
     expect(parsed).to.eql({
       raw: 'cmd -z -c -v -flag1 123 -p -f test --depth=0 -s --string=noquotes --flagstring="with spaces" source/ dest/',
       command: 'cmd',

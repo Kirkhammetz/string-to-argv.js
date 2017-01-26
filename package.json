@@ -6,6 +6,9 @@
   "bin": {
     "string-to-argv.js": "Parser.js"
   },
+  "engines":{
+    "node": ">=4.2"
+  },
   "directories": {
     "test": "tests"
   },
@@ -28,5 +31,9 @@
     "prompt"
   ],
   "author": "Simone Corsi",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0"
+  }
 }
