@@ -1,12 +1,12 @@
 {
   "name": "string-to-argv.js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Take a unix-like command line as a string and parse into an usable object",
   "main": "bin/Parser.js",
   "bin": {
     "string-to-argv.js": "bin/Parser.js"
   },
-  "engines":{
+  "engines": {
     "node": ">=4.2"
   },
   "directories": {
