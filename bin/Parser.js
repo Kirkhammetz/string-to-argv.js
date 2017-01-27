@@ -148,4 +148,10 @@ class Parser {
   }
 }
 
+if (global && !global['Parser']){
+  global['Parser'] = Parser
+} else if (window && !window['Parser']){
+  window['Parser'] = Parser
+}
+
 module.exports = Parser
